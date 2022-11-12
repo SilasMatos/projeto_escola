@@ -11,11 +11,19 @@
                     <label for="inputEmail4" class="form-label">Nome</label>
                     <input type="text" name="nome" class="form-control" id="inputEmail4">
                 </div>
-                <div class="col-md-12">
+
+                <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Sexo</label>
+                    <select class="form-control">
+                        <option value="">-</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
                     <label for="inputEmail4" class="form-label">CPF</label>
                     <input type="text" name="cpf" class="form-control" id="inputEmail4">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">CEP</label>
                     <input type="text" name="cep" class="form-control" id="inputEmail4">
                 </div>
@@ -41,8 +49,8 @@
                 </div>
 
                 <div class="col-md-12">
-                    <label for="inputPassword4" class="form-label">Observação</label>
-                    <textarea name="obs" class="form-control"></textarea>
+                    <label for="inputPassword4"  class="form-label">Observação</label>
+                    <textarea name="obs"  rows= 7 class="form-control"></textarea>
                 </div>
 
 
