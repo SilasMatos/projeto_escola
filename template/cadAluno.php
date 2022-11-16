@@ -52,7 +52,7 @@
 
                 <div class="col-md-12">
                     <label for="inputPassword4"  class="form-label">Observação</label>
-                    <textarea name="obs"  rows= 7 class="form-control"></textarea>
+                    <textarea name="obs"  rows= "7" cols="10" class="form-control"></textarea>
                 </div>
 
 
@@ -64,6 +64,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 
 <?php
 if(empty($_POST['nome'])){
