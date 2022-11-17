@@ -14,7 +14,7 @@
 
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">Sexo</label>
-                    <select class="form-control">
+                    <select class="form-control" name="sexo">
                         <option value="">-</option>
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
@@ -71,8 +71,28 @@
 </script>
 
 <?php
-if(empty($_POST['nome'])){
-    echo "<script>alert('oi')</script>";
+if(!empty($_POST['nome'])){
+    include "_scripts/config.php";
+    $nome = $_POST['nome'];
+    $sexo = $_POST['sexo'];
+    $cpf = $_POST['cpf'];
+    $cep = $_POST['cep'];
+    $rua = $_POST['rua'];
+    $cidade = $_POST['cidade'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
+    $obs = $_POST['obs'];
+
+    $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
+    $query = $mysqli->query($sql);
+
+    if($query){
+        echo "<script>alert('Salvo')</script>";
+    }else{
+        echo "<script>alert('Erro')</script>";
+    }
+
+
 }
 
 ?>
