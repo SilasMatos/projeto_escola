@@ -83,27 +83,32 @@ if(!empty($_POST['nome'])){
     $estado = $_POST['estado'];
     $obs = $_POST['obs'];
 
-    $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
-    $query = $mysqli->query($sql);
+    if(validarAluno($cpf)=>1){
+        echo "<script>alert('Já está cadastrado')</script>";
+    }else{  
 
-    if($query){ ?>
-        <script type="text/javascript">
-            Swal.fire({
-                title:'Salvo',
-                text:'Aluno Cadastrado com Sucesso',
-                icon:'success',
-                confirmButtonText:'Ok'
-            }).then((result)=>{
-                if(result.isConfirmed){
-                    location.href="index.php?r=inicio";
-                }
-            })
-        </script>
-    <?php }else{ ?>  
-        <script type="text/javascript">
-            swal("Erro");
-        </script>
-    <?php }
+        $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
+        $query = $mysqli->query($sql);
+
+        if($query){ ?>
+            <script type="text/javascript">
+                Swal.fire({
+                    title:'Salvo',
+                    text:'Aluno Cadastrado com Sucesso',
+                    icon:'success',
+                    confirmButtonText:'Ok'
+                }).then((result)=>{
+                    if(result.isConfirmed){
+                        location.href="index.php?r=inicio";
+                    }
+                })
+            </script>
+        <?php }else{ ?>  
+            <script type="text/javascript">
+                swal("Erro");
+            </script>
+        <?php }
+    }
 
 
 }
