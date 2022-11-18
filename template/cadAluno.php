@@ -88,7 +88,16 @@ if(!empty($_POST['nome'])){
 
     if($query){ ?>
         <script type="text/javascript">
-            swal("Salvo");
+            Swal.fire({
+                title:'Salvo',
+                text:'Aluno Cadastrado com Sucesso',
+                icon:'success',
+                confirmButtonText:'Ok'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    location.href="index.php?r=inicio";
+                }
+            })
         </script>
     <?php }else{ ?>  
         <script type="text/javascript">
