@@ -1,3 +1,4 @@
+<?php include "_scripts/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
