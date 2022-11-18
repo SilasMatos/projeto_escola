@@ -86,11 +86,15 @@ if(!empty($_POST['nome'])){
     $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
     $query = $mysqli->query($sql);
 
-    if($query){
-        echo "<script>alert('Salvo')</script>";
-    }else{  
-        echo "<script>alert('Erro')</script>";
-    }
+    if($query){ ?>
+        <script type="text/javascript">
+            swal("Salvo");
+        </script>
+    <?php }else{ ?>  
+        <script type="text/javascript">
+            swal("Erro");
+        </script>
+    <?php }
 
 
 }
