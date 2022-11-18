@@ -23,7 +23,7 @@
 
                 <div class="col-md-4">
                     <label for="inputEmail4" class="form-label">CPF</label>
-                    <input type="text" name="cpf" class="form-control" id="inputEmail4">
+                    <input type="text" name="cpf" id="cpf" class="form-control" id="inputEmail4" onblur="return verificarCPF(this.value)">
                 </div>
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">CEP</label>
@@ -88,7 +88,7 @@ if(!empty($_POST['nome'])){
 
     if($query){
         echo "<script>alert('Salvo')</script>";
-    }else{
+    }else{  
         echo "<script>alert('Erro')</script>";
     }
 
