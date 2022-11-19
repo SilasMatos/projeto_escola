@@ -47,7 +47,7 @@
                 
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">Telefone</label>
-                    <input type="text" name="telefone" class="form-control">
+                    <input type="text" id="telefone" name="telefone" class="form-control">
                 </div>
 
 
@@ -107,8 +107,10 @@
 </div>
 
 <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+
 <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+    
 </script>
 
 <?php
