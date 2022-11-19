@@ -6,7 +6,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Cadastro de Professor</h6>
             </div>
             <div class="card-body">
-            <form class="row g-3" method="post" action="index.php?r=cadAluno">
+            <form class="row g-3" method="post" action="index.php?r=cadProfessor">
                 <div class="col-md-12">
                     <label for="inputEmail4" class="form-label">Nome</label>
                     <input type="text" name="nome" class="form-control" id="inputEmail4">
@@ -112,6 +112,11 @@ if(!empty($_POST['nome'])){
     $bairro = $_POST['bairro'];
     $estado = $_POST['estado'];
     $obs = $_POST['obs'];
+    $formacao = $_POST['formacao'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $estado_civil = $_POST['estado_civil'];
 
     if(validarAluno($cpf)>=1){ ?>
         <script type="text/javascript">
@@ -123,7 +128,7 @@ if(!empty($_POST['nome'])){
         </script>
     <?php }else{
 
-        $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
+        $sql = "INSERT INTO professor (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade,data_nascimento,email,telefone,formacao,cep) VALUES ('$nome','$estado_civil','$cpf','$rua','$bairro','$estado','$obs','$cidade','$formacao','$data_nascimento','$email','$telefone','$cep')";
         $query = $mysqli->query($sql);
 
         if($query){ ?>
