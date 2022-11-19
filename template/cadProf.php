@@ -139,7 +139,7 @@ if(!empty($_POST['nome'])){
         </script>
     <?php }else{
 
-        $sql = "INSERT INTO professor (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade,data_nascimento,email,telefone,formacao,cep) VALUES ('$nome','$estado_civil','$cpf','$rua','$bairro','$estado','$obs','$cidade','$formacao','$data_nascimento','$email','$telefone','$cep')";
+        $sql = "INSERT INTO professor (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade,data_nascimento,email,telefone,formacao,cep) VALUES ('$nome','$estado_civil','$cpf','$rua','$bairro','$estado','$obs','$cidade','$data_nascimento','$email','$telefone','$formacao','$cep')";
         $query = $mysqli->query($sql);
 
         if($query){ ?>
