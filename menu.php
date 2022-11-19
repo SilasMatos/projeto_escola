@@ -35,7 +35,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Selecione:</h6>
             <a class="collapse-item" href="index.php?r=cadAluno">Aluno</a>
-            <a class="collapse-item" href="cards.html">Professor</a>
+            <a class="collapse-item" href="index.php?r=cadProfessor">Professor</a>
         </div>
     </div>
 </li>

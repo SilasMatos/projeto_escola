@@ -38,6 +38,10 @@
                                     include "template/cadAluno.php";
                                     break;
 
+                                case 'cadProfessor':
+                                    include "template/cadProf.php";
+                                    break;
+
                                 default:
                                 include "template/index.php";
                             }   
