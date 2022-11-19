@@ -24,6 +24,17 @@
                     </select>
                 </div>
 
+                <div class="col-md-12">
+                    <label for="inputEmail4" class="form-label">Estado Civil</label>
+                    <select class="form-control" required name="estado_civil">
+                        <option value="">-</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Viúvo(a)">Viúvo(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                    </select>
+                </div>
+
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">Data de Nascimento</label>
                     <input type="date" name="data_nascimento" class="form-control">
