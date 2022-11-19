@@ -12,6 +12,35 @@
                     <input type="text" name="nome" class="form-control" id="inputEmail4">
                 </div>
 
+                <div class="col-md-12">
+                    <label for="inputEmail4" class="form-label">Formação</label>
+                    <select class="form-control" required name="formacao">
+                        <option value="">-</option>
+                        <option value="Graduado">Graduado</option>
+                        <option value="Especialista">Especialista</option>
+                        <option value="Mestrado">Mestrado</option>
+                        <option value="Doutorado">Doutorado</option>
+                        <option value="PHD">PHD</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Data de Nascimento</label>
+                    <input type="date" name="data_nascimento" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">CPF</label>
+                    <input type="text" name="cpf" id="cpf" class="form-control" id="inputEmail4" onblur="return verificarCPF(this.value)">
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">CEP</label>
+                    <input type="text" name="cep" id="cep"  onblur="pesquisacep(this.value);"   class="form-control">
+                </div>
+
+
+
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">Sexo</label>
                     <select class="form-control" name="sexo">
@@ -25,6 +54,7 @@
                     <label for="inputEmail4" class="form-label">CPF</label>
                     <input type="text" name="cpf" id="cpf" class="form-control" id="inputEmail4" onblur="return verificarCPF(this.value)">
                 </div>
+
                 <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">CEP</label>
                     <input type="text" name="cep" id="cep"  onblur="pesquisacep(this.value);"   class="form-control">
