@@ -83,7 +83,7 @@ if(!empty($_POST['nome'])){
     $estado = $_POST['estado'];
     $obs = $_POST['obs'];
 
-    if(validarAluno($cpf)>=1){ ?>
+    if(validarUsuario($cpf,'cadAluno')>=1){ ?>
         <script type="text/javascript">
             Swal.fire(
             'Ops!',

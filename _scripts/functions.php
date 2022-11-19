@@ -8,9 +8,9 @@ function totalCard($tipo){
     return $total;
 }
 
-function validarAluno($cpf){
+function validarUsuario($cpf,$tabela){
     include "config.php";
-    $sql = "SELECT id FROM cadAluno WHERE cpf = '$cpf'";
+    $sql = "SELECT id FROM $tabela WHERE cpf = '$cpf'";
     $query = $mysqli->query($sql);
     $total = $query->num_rows;
 

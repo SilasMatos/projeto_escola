@@ -129,7 +129,7 @@ if(!empty($_POST['nome'])){
     $telefone = $_POST['telefone'];
     $estado_civil = $_POST['estado_civil'];
 
-    if(validarAluno($cpf)>=1){ ?>
+    if(validarUsuario($cpf,'professor')>=1){ ?>
         <script type="text/javascript">
             Swal.fire(
             'Ops!',
