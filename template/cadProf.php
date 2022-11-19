@@ -30,13 +30,13 @@
                 </div>
 
                 <div class="col-md-4">
-                    <label for="inputEmail4" class="form-label">CPF</label>
-                    <input type="text" name="cpf" id="cpf" class="form-control" id="inputEmail4" onblur="return verificarCPF(this.value)">
+                    <label for="inputEmail4" class="form-label">email</label>
+                    <input type="email" class="form-control" name="email">
                 </div>
                 
                 <div class="col-md-4">
-                    <label for="inputPassword4" class="form-label">CEP</label>
-                    <input type="text" name="cep" id="cep"  onblur="pesquisacep(this.value);"   class="form-control">
+                    <label for="inputPassword4" class="form-label">Telefone</label>
+                    <input type="text" name="telefone" class="form-control">
                 </div>
 
 
