@@ -83,9 +83,15 @@ if(!empty($_POST['nome'])){
     $estado = $_POST['estado'];
     $obs = $_POST['obs'];
 
-    if(validarAluno($cpf)=>1){
-        echo "<script>alert('Já está cadastrado')</script>";
-    }else{  
+    if(validarAluno($cpf)>=1){ ?>
+        <script type="text/javascript">
+            Swal.fire(
+            'Ops!',
+            'Esse CPF já está cadastrado.',
+            'question'
+            )
+        </script>
+    <?php }else{
 
         $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
         $query = $mysqli->query($sql);

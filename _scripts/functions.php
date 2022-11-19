@@ -13,8 +13,8 @@ function validarAluno($cpf){
     $sql = "SELECT id FROM cadAluno WHERE cpf = '$cpf'";
     $query = $mysqli->query($sql);
     $total = $query->num_rows;
-    
-    return $total
+
+    return $total;
 
 }
 ?>
