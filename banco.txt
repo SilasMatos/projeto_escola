@@ -44,3 +44,11 @@ CREATE TABLE `professor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `cadDisciplina` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_disciplina` varchar(255) DEFAULT NULL,
+  `carga_horaria` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
