@@ -42,6 +42,10 @@
                                     include "template/cadProf.php";
                                     break;
 
+                                case 'cadDisciplina':
+                                    include "template/cadDisciplina.php";
+                                    break;
+
                                 default:
                                 include "template/index.php";
                             }   

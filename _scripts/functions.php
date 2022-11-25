@@ -17,4 +17,14 @@ function validarUsuario($cpf,$tabela){
     return $total;
 
 }
+
+function cadDisciplina($nome){
+    include "config.php";
+    $sql = "SELECT id FROM caddisciplina WHERE nome_disciplina = '$nome'";
+    $query = $mysqli->query($sql);
+    $total = $query->num_rows;
+
+    return $total;
+
+}
 ?>
