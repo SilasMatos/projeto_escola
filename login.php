@@ -51,6 +51,7 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
+                                        <h6 style="text-align: center">Não tem usuário? Cadastre-se</h6>
                                         
                                         <a href="index.php" class="btn btn-primary btn-user btn-block">
                                             Login
