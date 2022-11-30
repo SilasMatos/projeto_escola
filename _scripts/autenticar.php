@@ -16,9 +16,9 @@ $total = $query->num_rows;
 if($total==0){ ?>
     <script type="text/javascript">
         Swal.fire({
-            title:'Salvo',
+            title:'Ops!',
             text:'Login não encontrado',
-            icon:'errorr',
+            icon:'error',
             confirmButtonText:'Ok'
         }).then((result)=>{
             if(result.isConfirmed){
@@ -34,9 +34,9 @@ if($total==0){ ?>
     if($total==0){ ?>
          <script type="text/javascript">
         Swal.fire({
-            title:'Salvo',
+            title:'Ops!',
             text:'Senha incorreta',
-            icon:'errorr',
+            icon:'error',
             confirmButtonText:'Ok'
         }).then((result)=>{
             if(result.isConfirmed){
