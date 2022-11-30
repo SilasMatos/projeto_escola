@@ -45,7 +45,7 @@ if($total==0){ ?>
         })
     </script>
     <?php }else{
-        echo "<script>alert('efetuar login')</script>";
+        echo "<script>window.location.href='../index.php';</script>";
 
     }
 
