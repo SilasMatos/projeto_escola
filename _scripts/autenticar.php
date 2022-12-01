@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <body>
         <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -45,6 +48,7 @@ if($total==0){ ?>
         })
     </script>
     <?php }else{
+       $_SESSION['email'] = $email; 
         echo "<script>window.location.href='../index.php';</script>";
 
     }
