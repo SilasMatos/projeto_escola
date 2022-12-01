@@ -41,7 +41,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
                                     </div>
-                                    <form class="user" method="post" action="_scripts/autenticar.php">
+                                    <form class="user" method="post" action="_scripts/cadastrar.php">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" name="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -51,10 +51,14 @@
                                             <input type="password" class="form-control form-control-user" name="senha" required
                                                 id="exampleInputPassword" placeholder="Digite sua senha">
                                         </div>
-                                        <h6 style="text-align: center">Não tem usuário? <a href="cadastro.php">Cadastre-se</a></h6>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="usuario"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Digite seu Usuário" required>
+                                        </div>
                                         
                                         <button class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Cadastrar
                                         </button>
                                         
                                     </form>
