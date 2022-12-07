@@ -46,6 +46,10 @@
                                     include "template/cadDisciplina.php";
                                     break;
 
+                                case 'altAluno':
+                                    include "template/altAluno.php";
+                                    break;
+
                                 default:
                                 include "template/index.php";
                             }   
