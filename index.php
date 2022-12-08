@@ -47,8 +47,12 @@
                                     break;
 
                                 case 'altAluno':
-                                    include "template/altAluno.php";
+                                    include "template/telaAltAluno.php";
                                     break;
+
+                                case 'alterarAluno':
+                                        include "template/altAluno.php";
+                                        break;
 
                                 default:
                                 include "template/index.php";

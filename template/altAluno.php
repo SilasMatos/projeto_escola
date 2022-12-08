@@ -1,51 +1,73 @@
+<?php
+$id = $_GET['id'];
+include "_scripts/config.php";
+$sql = "SELECT * FROM cadAluno WHERE id = '$id'";
+$query = $mysqli->query($sql);
+$dados = $query->fetch_array();
+?>
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Alterar Cadastro de Alunos</h6>
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Cadastro de Alunos</h6>
             </div>
             <div class="card-body">
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Aluno</th>
-                            <th>Rua</th>
-                            <th>Bairro</th>
-                            <th>Cidade</th>
-                            <th>#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include "_scripts/config.php";
-                        $sql = "SELECT * FROM cadAluno";
-                        $query = $mysqli->query($sql);
-                        while ($dados = $query->fetch_array()){
-                        ?>
+            <form class="row g-3" method="post" action="index.php?r=alterarAluno&id=<?php echo $id; ?>">
+                <input type="hidden" value="<?php echo $id; ?>" name="id" >
+                <div class="col-md-12">
+                    <label for="inputEmail4" class="form-label">Nome</label>
+                    <input type="text" name="nome"  value="<?php echo $dados['nome']; ?>" class="form-control" id="inputEmail4">
+                </div>
 
-                        <tr>
-                            <td><?php echo $dados['nome']; ?></td>
-                            <td><?php echo $dados['rua']; ?></td>
-                            <td><?php echo $dados['bairro']; ?></td>
-                            <td><?php echo $dados['cidade']; ?></td>
-                            <td>
-                                <i class="fa-solid fa-pen"></i> &nbsp;&nbsp;
-                                <i class="fa-solid fa-trash"></i>
-                            </td>
-                        </tr>
+                <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Sexo</label>
+                    <select class="form-control" name="sexo">
+                        <option value="<?php echo $dados['estado_civil']; ?>"><?php echo $dados['estado_civil']; ?></option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
 
-                        <?php } ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Aluno</th>
-                            <th>Rua</th>
-                            <th>Bairro</th>
-                            <th>Cidade</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
-                </table>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">CPF</label>
+                    <input type="text" name="cpf" value="<?php echo $dados['cpf']; ?>" id="cpf" class="form-control" id="inputEmail4" onblur="return verificarCPF(this.value)">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">CEP</label>
+                    <input type="text" name="cep" id="cep"  onblur="pesquisacep(this.value);"   class="form-control">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="inputPassword4" class="form-label">Rua</label>
+                    <input type="text" name="rua" value="<?php echo $dados['rua']; ?>" id="rua" readonly class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Cidade</label>
+                    <input type="text" name="cidade" value="<?php echo $dados['cidade']; ?>" id="cidade" readonly class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Bairro</label>
+                    <input type="text" value="<?php echo $dados['bairro']; ?>" name="bairro" readonly class="form-control" id="bairro">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="inputPassword4" class="form-label">Estado</label>
+                    <input type="text" name="estado" readonly class="form-control" value="<?php echo $dados['estado']; ?>" id="uf">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="inputPassword4"  class="form-label">Observação</label>
+                    <textarea name="obs"  rows= "7" cols="10" class="form-control"><?php echo $dados['obs']; ?></textarea>
+                </div>
+
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
             </div>
         </div>
     </div>
@@ -53,14 +75,13 @@
 
 <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
 <script type="text/javascript">
-    bkLib.onDomLoaded(function() {
-        nicEditors.allTextAreas()
-    });
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 </script>
 
 <?php
-if (!empty($_POST['nome'])) {
+if(!empty($_POST['nome'])){
     include "_scripts/config.php";
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $sexo = $_POST['sexo'];
     $cpf = $_POST['cpf'];
@@ -71,38 +92,30 @@ if (!empty($_POST['nome'])) {
     $estado = $_POST['estado'];
     $obs = $_POST['obs'];
 
-    if (validarUsuario($cpf, 'cadAluno') >= 1) { ?>
-        <script type="text/javascript">
-            Swal.fire(
-                'Ops!',
-                'Esse CPF já está cadastrado.',
-                'question'
-            )
-        </script>
-        <?php } else {
-
-        $sql = "INSERT INTO cadAluno (nome, estado_civil, cpf, rua, bairro, estado,obs, cidade) VALUES ('$nome','$sexo','$cpf','$rua','$bairro','$estado','$obs','$cidade')";
+        $sql = "UPDATE cadAluno SET nome = '$nome',estado_civil = '$sexo',cpf = '$cpf', rua = '$rua', bairro = '$bairro', cidade = '$cidade', obs = '$obs' WHERE id = '$id'";
         $query = $mysqli->query($sql);
 
-        if ($query) { ?>
+        if($query){ ?>
             <script type="text/javascript">
                 Swal.fire({
-                    title: 'Salvo',
-                    text: 'Aluno Cadastrado com Sucesso',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.href = "index.php?r=inicio";
+                    title:'Salvo',
+                    text:'Aluno Cadastrado com Sucesso',
+                    icon:'success',
+                    confirmButtonText:'Ok'
+                }).then((result)=>{
+                    if(result.isConfirmed){
+                        location.href="index.php?r=inicio";
                     }
                 })
             </script>
-        <?php } else { ?>
+        <?php }else{ ?>  
             <script type="text/javascript">
                 swal("Erro");
             </script>
-<?php }
-    }
+        <?php }
+    
+
+
 }
 
 ?>
